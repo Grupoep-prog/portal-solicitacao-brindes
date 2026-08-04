@@ -543,6 +543,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
+    text-decoration: none;
   }
   .btn-open-stock:hover { background: var(--brand-light); transform: translateY(-1px); }
 
@@ -790,6 +791,7 @@
     <div id="panel-stock" class="panel-section">
       <div class="stock-search-wrap">
         <input type="text" id="stock-search" class="stock-search-input" placeholder="🔍 Buscar produto por nome..." oninput="renderStockPanel()">
+        <a href="https://docs.google.com/spreadsheets/d/13aQkO4pSoMtxUBNzHBZuH1mFyGoiotyFfUAhyIvp_gA/edit?gid=0#gid=0" target="_blank" class="btn-open-stock">📊 Abrir Controle de Estoque ↗</a>
       </div>
       <div class="stock-list-vertical" id="stock-list-vertical"></div>
     </div>
@@ -1044,7 +1046,7 @@ async function submitRequest() {
     reqs.unshift(req);
     setRequests(reqs);
 
-    // Envia o pedido EXCLUSIVAMENTE para a Planilha de Solicitações (AKfycbxy...)
+    // Envia a solicitação EXCLUSIVAMENTE para o endpoint de solicitações
     if (GOOGLE_WEB_APP_SOLICITACOES_URL) {
       await fetch(GOOGLE_WEB_APP_SOLICITACOES_URL, {
         method: 'POST',
