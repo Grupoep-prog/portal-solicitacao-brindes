@@ -74,9 +74,11 @@
   }
   .tab-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
   .tab-btn.active { background: var(--accent); color: var(--brand); font-weight: 700; }
+  
   /* ── PAGES ── */
   .page { display: none; }
   .page.active { display: block; }
+  
   /* ── LOJA ── */
   .store-wrap {
     max-width: 1200px;
@@ -93,7 +95,7 @@
     margin-bottom: 6px !important;
   }
   .store-hero p { color: var(--text-muted); font-size: 15px; }
-  /* solicitante */
+  
   .requester-bar {
     background: var(--card);
     border: 1px solid var(--border);
@@ -133,7 +135,7 @@
   .field-group input:focus, .field-group select:focus {
     border-color: var(--brand-light);
   }
-  /* linha de campos dentro do resumo */
+  
   .summary-fields {
     display: flex;
     gap: 20px;
@@ -143,7 +145,7 @@
   .summary-fields .field-group {
     min-width: 200px;
   }
-  /* grid de produtos */
+  
   .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -170,7 +172,6 @@
     box-shadow: 0 0 0 3px rgba(232,160,32,0.18);
   }
   
-  /* ESTILO PARA PRODUTOS SEM ESTOQUE */
   .product-card.out-of-stock {
     opacity: 0.6;
     pointer-events: none;
@@ -251,7 +252,7 @@
     outline: none;
   }
   .qty-input:focus { border-color: var(--brand-light); }
-  /* carrinho / resumo */
+  
   .checkout-section {
     background: var(--card);
     border: 1.5px solid var(--border);
@@ -312,7 +313,8 @@
   .btn-submit:hover { background: var(--brand-light); transform: translateY(-1px); }
   .btn-submit:active { transform: none; }
   .btn-submit:disabled { background: var(--text-muted); cursor: not-allowed; transform: none; }
-  /* ── SUCCESS MODAL ── */
+  
+  /* ── MODAL DE SUCESSO ── */
   .modal-overlay {
     position: fixed; inset: 0;
     background: rgba(18,33,58,0.55);
@@ -358,6 +360,7 @@
     transition: background 0.2s;
   }
   .btn-modal-close:hover { background: var(--brand-light); }
+  
   /* ── LOGIN PAGE ── */
   .login-wrap {
     min-height: calc(100vh - 64px);
@@ -402,6 +405,7 @@
     margin-top: 12px;
     display: none;
   }
+  
   /* ── PAINEL ── */
   .panel-wrap {
     max-width: 1100px;
@@ -433,7 +437,7 @@
     transition: all 0.2s;
   }
   .btn-logout:hover { border-color: var(--red); color: var(--red); }
-  /* tabs internas do painel */
+  
   .panel-tabs {
     display: flex;
     gap: 4px;
@@ -457,7 +461,7 @@
   .ptab.active { background: var(--card); color: var(--brand); font-weight: 700; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
   .panel-section { display: none; }
   .panel-section.active { display: block; }
-  /* tabela de solicitações */
+  
   .table-wrap {
     background: var(--card);
     border: 1.5px solid var(--border);
@@ -487,7 +491,6 @@
   tbody tr:hover { background: var(--surface); }
   tbody td { padding: 14px 16px; vertical-align: top; }
 
-  /* Botão de excluir */
   .btn-action {
     padding: 6px 14px;
     border-radius: 6px;
@@ -506,10 +509,14 @@
   /* ── ESTOQUE EM LISTA VERTICAL ── */
   .stock-search-wrap {
     margin-bottom: 24px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
   }
   .stock-search-input {
     width: 100%;
-    max-width: 400px;
+    max-width: 360px;
     padding: 12px 16px;
     border: 1.5px solid var(--border);
     border-radius: var(--radius);
@@ -522,6 +529,22 @@
   .stock-search-input:focus {
     border-color: var(--brand-light);
   }
+
+  .btn-open-stock {
+    padding: 12px 18px;
+    background: var(--brand);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-open-stock:hover { background: var(--brand-light); transform: translateY(-1px); }
 
   .stock-list-vertical {
     display: flex;
@@ -544,9 +567,9 @@
   }
 
   .stock-item-block.is-hidden {
-    background: #F2F4F8;
+    background: #F8FAFC;
     border-color: #CBD2DC;
-    opacity: 0.75;
+    opacity: 0.8;
   }
 
   .stock-item-info {
@@ -558,8 +581,8 @@
   }
 
   .stock-item-thumb {
-    width: 50px;
-    height: 50px;
+    width: 54px;
+    height: 54px;
     object-fit: contain;
     background: var(--surface);
     border-radius: 8px;
@@ -578,96 +601,24 @@
     font-weight: 700;
     color: var(--text-main);
   }
-
-  .stock-controls-group {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+  .stock-item-id {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
   }
 
-  .stock-label { font-size: 12px; color: var(--text-muted); font-weight: 600; }
-  .stock-input-wrap {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .stock-input {
-    width: 64px;
-    text-align: center;
-    border: 1.5px solid var(--border);
-    border-radius: 6px;
-    padding: 6px;
-    font-size: 14px;
-    font-weight: 600;
+  .stock-qty-badge {
+    font-size: 15px;
+    font-weight: 700;
     color: var(--text-main);
-    outline: none;
-    transition: border 0.2s;
-  }
-  .stock-input:focus { border-color: var(--brand-light); }
-  .btn-save-stock {
-    padding: 7px 14px;
-    background: var(--brand);
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .btn-save-stock:hover { background: var(--brand-light); }
-
-  .btn-toggle-visibility {
-    padding: 7px 14px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    border: 1.5px solid var(--border);
     background: var(--surface);
-    color: var(--text-main);
-    transition: all 0.2s;
-  }
-  .btn-toggle-visibility:hover {
-    background: var(--border);
-  }
-  .btn-toggle-visibility.hidden-mode {
-    background: #E2E8F0;
-    color: #475569;
-    border-color: #94A3B8;
-  }
-
-  /* Caixas e botões de reservas de estoque agora integrados abaixo das infos */
-  .stock-reservation-box {
-    background: var(--accent-soft);
-    border: 1px solid var(--accent);
+    padding: 8px 16px;
     border-radius: 8px;
-    padding: 8px 12px;
-    margin-top: 4px;
+    border: 1px solid var(--border);
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    width: fit-content;
+    align-items: center;
+    gap: 8px;
   }
-  .stock-reservation-text {
-    font-size: 11px;
-    font-weight: 700;
-    color: #856404;
-  }
-  .btn-deduct-stock {
-    padding: 5px 10px;
-    background: #856404;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .btn-deduct-stock:hover { background: #533f02; }
 
   .stock-indicator {
     display: flex;
@@ -684,6 +635,15 @@
   .dot-ok { background: var(--green); }
   .dot-low { background: var(--accent); }
   .dot-zero { background: var(--red); }
+
+  .badge-visibility {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+  .badge-visibility.visible { background: #E8F7F0; color: var(--green); }
+  .badge-visibility.hidden { background: #FEE2E2; color: #991B1B; }
 
   /* Toast */
   .toast {
@@ -704,7 +664,7 @@
     pointer-events: none;
   }
   .toast.show { opacity: 1; transform: translateY(0); }
-  /* empty state */
+
   .empty-state {
     text-align: center;
     padding: 60px 24px;
@@ -712,6 +672,7 @@
   }
   .empty-state .icon { font-size: 40px; margin-bottom: 12px; }
   .empty-state p { font-size: 14px; }
+
   @media (max-width: 680px) {
     header { padding: 0 16px; }
     .logo-img { height: 26px; }
@@ -723,7 +684,6 @@
     .login-card { padding: 32px 24px; }
     .summary-fields { flex-direction: column; }
     .stock-item-block { flex-direction: column; align-items: flex-start; }
-    .stock-controls-group { flex-direction: column; align-items: flex-start; width: 100%; }
   }
 </style>
 </head>
@@ -737,6 +697,8 @@
     <button class="tab-btn" onclick="showPage('painel', this)">Estoque</button>
   </nav>
 </header>
+
+<!-- PÁGINA DA LOJA -->
 <div id="page-store" class="page active">
   <div class="store-wrap">
     <div class="store-hero">
@@ -763,7 +725,13 @@
         </select>
       </div>
     </div>
-    <div class="products-grid" id="products-grid"></div>
+    
+    <div class="products-grid" id="products-grid">
+      <p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px 0;">
+        🔄 Carregando catálogo de brindes...
+      </p>
+    </div>
+
     <div class="checkout-section">
       <h2>Resumo da Solicitação</h2>
       <div id="cart-display"></div>
@@ -787,6 +755,8 @@
     </div>
   </div>
 </div>
+
+<!-- PÁGINA PAINEL / ESTOQUE -->
 <div id="page-painel" class="page">
   <div id="painel-login" class="login-wrap">
     <div class="login-card">
@@ -801,17 +771,18 @@
       <div class="login-error" id="login-error">Senha incorreta. Tente novamente.</div>
     </div>
   </div>
+
   <div id="painel-content" class="panel-wrap" style="display:none;">
     <div class="panel-header">
       <div>
         <h1>Painel de Marketing</h1>
-        <p>Gerencie solicitações recebidas e o estoque de brindes.</p>
+        <p>Gerencie solicitações e visualize o estoque sincronizado com a planilha.</p>
       </div>
       <button class="btn-logout" onclick="doLogout()">Sair</button>
     </div>
     <div class="panel-tabs">
       <button class="ptab active" onclick="showPanelTab('solicitations', this)">Solicitações</button>
-      <button class="ptab" onclick="showPanelTab('stock', this)">Estoque</button>
+      <button class="ptab" onclick="showPanelTab('stock', this)">Estoque Sincronizado</button>
     </div>
     <div id="panel-solicitations" class="panel-section active">
       <div id="solicitations-list"></div>
@@ -824,6 +795,8 @@
     </div>
   </div>
 </div>
+
+<!-- MODAL SUCESSO -->
 <div class="modal-overlay" id="success-modal">
   <div class="modal-box">
     <div class="modal-icon">✅</div>
@@ -832,53 +805,78 @@
     <button class="btn-modal-close" onclick="closeModal()">Entendido</button>
   </div>
 </div>
+
 <div class="toast" id="toast"></div>
+
 <script>
 // ══════════════════════════════════════════
-//  DADOS BASE
+//  INTEGRAÇÃO GOOGLE SHEETS
 // ══════════════════════════════════════════
-const PRODUCTS = [
-  { id: 1, name: 'Calendário de mesa',             img: 'https://i.postimg.cc/zfnBGnDs/Calendario-de-mesa.png' },
-  { id: 2, name: 'Caderneta com caneta',           img: 'https://i.postimg.cc/CKj1xjMP/Caderneta-com-caneta.png' },
-  { id: 3, name: 'Suporte de celular',             img: 'https://i.postimg.cc/D0zy6HQ4/Suporte-de-celular.png' },
-  { id: 4, name: 'Caneta EP',                      img: 'https://i.postimg.cc/Dw40R99q/Caneta-EP.png' },
-  { id: 5, name: 'Copo de fibra de arroz',         img: 'https://i.postimg.cc/9f302x2S/Copo-de-fibra-de-arroz.png' },
-  { id: 6, name: 'Mochila Sacola — Engenharia',    img: 'https://i.postimg.cc/0jN2nFY3/Mochila-Sacola-Engenharia.png' },
-  { id: 7, name: 'Mochila Sacola — Grupo EP',      img: 'https://i.postimg.cc/nrLc2gKt/Mochila-Sacola-Grupo-EP.png' },
-  { id: 8, name: 'Mochila Sacola — Analítica',     img: 'https://i.postimg.cc/FRpHjNL8/Mochila-Sacola-Analitica.png' },
-  { id: 9, name: 'Garrafa 1l — Grupo EP',          img: 'https://i.postimg.cc/hG9jt9PD/Garrafa-1L-Grupo-EP.png' },
-  { id:10, name: 'Garrafa 750ml — Grupo EP',       img: 'https://i.postimg.cc/FRNKd77b/Garrafa-750ml-Grupo-EP.png' },
-  { id:11, name: 'Caderneta Analítica - Azul',     img: 'https://i.postimg.cc/Z53whkNt/Caderneta-Analitica-Azul.png' },
-  { id:12, name: 'Sacola TNT - Branca',            img: 'https://i.postimg.cc/vHC0j8cJ/Sacola-TNT-Branca.png' },
-  { id:13, name: 'Caderneta Analítica - Verde',    img: 'https://i.postimg.cc/MpR98kQN/Caderneta-Analitica-Verde.png' },
-];
+// 1. Script para ler o ESTOQUE
+const GOOGLE_WEB_APP_ESTOQUE_URL = 'https://script.google.com/macros/s/AKfycbzp0lhfxLyU8kP682hqNSr1bKd2Q45NIv_OmZnd0jjtPQna0bOiFRiHzmGbPhvbkPb4/exec';
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz-W72EAFVK_mlCCYBd0xfXFdnkxbxuZqe2HYnVNhg_Y4ZSEfRV2xQ3vDZSjKYemVgA/exec'; 
-const PANEL_PASSWORD    = 'estoquemkt2026@';
+// 2. Script para gravar as SOLICITAÇÕES
+const GOOGLE_WEB_APP_SOLICITACOES_URL = 'https://script.google.com/macros/s/AKfycbxyj3m4ULp9ODYeN4ys3rCoETLC8-hIRxOL2C75wqFP8pImByhoearP4ib5dSWxJCQHwA/exec';
+
+const PANEL_PASSWORD = 'estoquemkt2026@';
 
 // ══════════════════════════════════════════
-//  ESTADO LOCAL
+//  ESTADO GLOBAL DE PRODUTOS E CARRINHO
 // ══════════════════════════════════════════
-function getStock() {
-  const s = localStorage.getItem('ep_stock');
-  if (s) return JSON.parse(s);
-  const def = {};
-  PRODUCTS.forEach(p => def[p.id] = 50);
-  return def;
+let PRODUCTS = [];
+const cart = {};
+
+async function fetchProductsFromSheets() {
+  if (!GOOGLE_WEB_APP_ESTOQUE_URL) {
+    showToast('⚠️ Defina a URL do Google Apps Script do Estoque.');
+    return;
+  }
+  
+  try {
+    const res = await fetch(GOOGLE_WEB_APP_ESTOQUE_URL);
+    const data = await res.json();
+    
+    let rawList = [];
+    if (Array.isArray(data)) {
+      rawList = data;
+    } else if (data && Array.isArray(data.products)) {
+      rawList = data.products;
+    }
+
+    PRODUCTS = rawList.map(item => {
+      const visVal = item.visible !== undefined ? item.visible : (item.visivel || item['Visível no portal?'] || item['Visivel no portal?'] || true);
+      const isVisible = (typeof visVal === 'boolean') 
+        ? visVal 
+        : String(visVal).trim().toLowerCase() === 'sim' || String(visVal).trim().toLowerCase() === 's' || String(visVal).trim().toLowerCase() === 'true';
+
+      return {
+        id: item.id || item['ID do Brinde'] || item.id_brinde,
+        name: item.name || item.nome || item['Nome'] || 'Produto Sem Nome',
+        stock: parseInt(item.stock || item.quantidade || item['Quantidade'] || 0),
+        img: item.img || item.imagem || item['URL da Imagem'] || '',
+        visible: isVisible
+      };
+    });
+
+    renderStore();
+    if (authenticated) {
+      renderStockPanel();
+    }
+    showToast('🔄 Estoque sincronizado!');
+
+  } catch (err) {
+    console.error('Erro ao buscar produtos:', err);
+    showToast('⚠️ Erro ao carregar dados do Google Sheets.');
+  }
 }
-function setStock(stock) { localStorage.setItem('ep_stock', JSON.stringify(stock)); }
-
-function getHiddenProducts() {
-  const h = localStorage.getItem('ep_hidden_products');
-  return h ? JSON.parse(h) : [];
-}
-function setHiddenProducts(hiddenArr) { localStorage.setItem('ep_hidden_products', JSON.stringify(hiddenArr)); }
 
 function getRequests() {
   const r = localStorage.getItem('ep_requests');
   return r ? JSON.parse(r) : [];
 }
-function setRequests(reqs) { localStorage.setItem('ep_requests', JSON.stringify(reqs)); }
+function setRequests(reqs) { 
+  localStorage.setItem('ep_requests', JSON.stringify(reqs)); 
+}
 
 function getNextSequence() {
   const currentYear = new Date().getFullYear();
@@ -897,55 +895,31 @@ function getNextSequence() {
   return String(seq).padStart(4, '0') + '/' + currentYear;
 }
 
-function getReservedStock() {
-  const reqs = getRequests();
-  const reserved = {};
-
-  reqs.forEach(req => {
-    if (req.rawCart) {
-      Object.keys(req.rawCart).forEach(prodId => {
-        reserved[prodId] = (reserved[prodId] || 0) + req.rawCart[prodId];
-      });
-    } else if (req.items && Array.isArray(req.items)) {
-      req.items.forEach(itemStr => {
-        PRODUCTS.forEach(p => {
-          if (itemStr.includes(p.name)) {
-            const match = itemStr.match(/:\s*(\d+)\s*un/);
-            if (match) {
-              const qty = parseInt(match[1]) || 0;
-              reserved[p.id] = (reserved[p.id] || 0) + qty;
-            }
-          }
-        });
-      });
-    }
-  });
-
-  return reserved;
-}
-
 // ══════════════════════════════════════════
 //  LOJA — RENDER
 // ══════════════════════════════════════════
-const cart = {}; 
 function renderStore() {
-  const stock  = getStock();
-  const hidden = getHiddenProducts();
-  const grid   = document.getElementById('products-grid');
+  const grid = document.getElementById('products-grid');
   grid.innerHTML = '';
 
-  const visibleProducts = PRODUCTS.filter(p => !hidden.includes(p.id));
+  const visibleProducts = PRODUCTS.filter(p => p.visible);
+
+  if (visibleProducts.length === 0) {
+    grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px 0;">Nenhum produto visível no momento.</p>`;
+    renderCart();
+    return;
+  }
 
   const sortedProducts = [...visibleProducts].sort((a, b) => {
-    const stockA = stock[a.id] ?? 0;
-    const stockB = stock[b.id] ?? 0;
+    const stockA = a.stock ?? 0;
+    const stockB = b.stock ?? 0;
     if (stockA === 0 && stockB > 0) return 1;
     if (stockA > 0 && stockB === 0) return -1;
-    return a.id - b.id;
+    return 0;
   });
 
   sortedProducts.forEach(p => {
-    const qty     = stock[p.id] ?? 0;
+    const qty     = p.stock ?? 0;
     const isZero  = qty === 0;
     const isLow   = qty > 0 && qty <= 5;
     const cartQty = cart[p.id] || 0;
@@ -962,15 +936,16 @@ function renderStore() {
       <div class="product-info">
         <div class="product-name">${p.name}</div>
         <div class="qty-control">
-          <button class="qty-btn" onclick="changeQty(${p.id}, -1, ${qty})" ${isZero ? 'disabled' : ''}>−</button>
-          <input class="qty-input" type="number" min="0" max="${qty}" value="${cartQty}" id="qty-${p.id}" onchange="setQty(${p.id}, this.value, ${qty})" ${isZero ? 'disabled' : ''}>
-          <button class="qty-btn" onclick="changeQty(${p.id}, 1, ${qty})" ${isZero ? 'disabled' : ''}>+</button>
+          <button class="qty-btn" onclick="changeQty('${p.id}', -1, ${qty})" ${isZero ? 'disabled' : ''}>−</button>
+          <input class="qty-input" type="number" min="0" max="${qty}" value="${cartQty}" id="qty-${p.id}" onchange="setQty('${p.id}', this.value, ${qty})" ${isZero ? 'disabled' : ''}>
+          <button class="qty-btn" onclick="changeQty('${p.id}', 1, ${qty})" ${isZero ? 'disabled' : ''}>+</button>
         </div>
       </div>`;
     grid.appendChild(card);
   });
   renderCart();
 }
+
 function changeQty(id, delta, maxStock) {
   const cur = cart[id] || 0;
   const nxt = Math.max(0, Math.min(maxStock, cur + delta));
@@ -978,18 +953,23 @@ function changeQty(id, delta, maxStock) {
   if (nxt === 0) delete cart[id];
   const input = document.getElementById(`qty-${id}`);
   if (input) input.value = nxt;
-  document.getElementById(`card-${id}`).className = 'product-card' + (nxt > 0 ? ' selected' : '');
+  const card = document.getElementById(`card-${id}`);
+  if (card) card.className = 'product-card' + (nxt > 0 ? ' selected' : '');
   renderCart();
 }
+
 function setQty(id, val, maxStock) {
   let nxt = parseInt(val) || 0;
   nxt = Math.max(0, Math.min(maxStock, nxt));
   cart[id] = nxt;
   if (nxt === 0) delete cart[id];
-  document.getElementById(`qty-${id}`).value = nxt;
-  document.getElementById(`card-${id}`).className = 'product-card' + (nxt > 0 ? ' selected' : '');
+  const input = document.getElementById(`qty-${id}`);
+  if (input) input.value = nxt;
+  const card = document.getElementById(`card-${id}`);
+  if (card) card.className = 'product-card' + (nxt > 0 ? ' selected' : '');
   renderCart();
 }
+
 function renderCart() {
   const display = document.getElementById('cart-display');
   const keys    = Object.keys(cart).filter(k => cart[k] > 0);
@@ -1000,9 +980,9 @@ function renderCart() {
   }
   document.getElementById('btn-submit').disabled = false;
   const items = keys.map(id => {
-    const p = PRODUCTS.find(x => x.id == id);
+    const p = PRODUCTS.find(x => String(x.id) === String(id));
     return `<div class="cart-item">
-      <span class="cart-item-name">${p.name}</span>
+      <span class="cart-item-name">${p ? p.name : 'Brinde'}</span>
       <span class="cart-item-qty">${cart[id]} un.</span>
     </div>`;
   }).join('');
@@ -1010,7 +990,7 @@ function renderCart() {
 }
 
 // ══════════════════════════════════════════
-//  ENVIAR SOLICITAÇÃO (GOOGLE SHEETS)
+//  ENVIAR SOLICITAÇÃO (EXCLUSIVO PARA SOLICITAÇÕES)
 // ══════════════════════════════════════════
 async function submitRequest() {
   const nome         = document.getElementById('req-nome').value.trim();
@@ -1019,6 +999,7 @@ async function submitRequest() {
   const aprovador    = document.getElementById('req-aprovador').value;
   const evento       = document.getElementById('req-evento').value.trim();
   const obs          = document.getElementById('req-obs').value.trim();
+  const btnSubmit    = document.getElementById('btn-submit');
   
   if (!nome) { showToast('⚠️ Preencha seu nome.'); return; }
   if (!email) { showToast('⚠️ Preencha seu e-mail corporativo.'); return; }
@@ -1031,8 +1012,8 @@ async function submitRequest() {
   if (keys.length === 0) { showToast('⚠️ Selecione ao menos 1 item.'); return; }
   
   const items = keys.map(id => {
-    const p = PRODUCTS.find(x => x.id == id);
-    return `${p.name}: ${cart[id]} un.`;
+    const p = PRODUCTS.find(x => String(x.id) === String(id));
+    return `${p ? p.name : id}: ${cart[id]} un.`;
   });
   
   const rawCart = {};
@@ -1054,48 +1035,44 @@ async function submitRequest() {
     items,
     rawCart
   };
-  
-  const reqs = getRequests();
-  reqs.unshift(req);
-  setRequests(reqs);
-  
-  const btn = document.getElementById('btn-submit');
-  btn.disabled = true;
-  btn.textContent = 'Enviando…';
-  
-  try {
-    const formData = new URLSearchParams();
-    formData.append('reqCode', reqCode);
-    formData.append('data', dateStr);
-    formData.append('nome', nome);
-    formData.append('email', email);
-    formData.append('equipe', equipe);
-    formData.append('aprovador', aprovador);
-    formData.append('evento', evento);
-    formData.append('items', items.join(' | '));
-    formData.append('obs', obs);
 
-    await fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: formData.toString()
-    });
-  } catch(e) {
-    console.error('Erro ao enviar para o Google Sheets:', e);
+  btnSubmit.disabled = true;
+  btnSubmit.textContent = 'Enviando...';
+
+  try {
+    const reqs = getRequests();
+    reqs.unshift(req);
+    setRequests(reqs);
+
+    // Envia o pedido EXCLUSIVAMENTE para a Planilha de Solicitações (AKfycbxy...)
+    if (GOOGLE_WEB_APP_SOLICITACOES_URL) {
+      await fetch(GOOGLE_WEB_APP_SOLICITACOES_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(req)
+      });
+    }
+
+    Object.keys(cart).forEach(k => delete cart[k]);
+    document.getElementById('req-nome').value      = '';
+    document.getElementById('req-email').value     = '';
+    document.getElementById('req-equipe').value    = '';
+    document.getElementById('req-aprovador').value = '';
+    document.getElementById('req-evento').value    = '';
+    document.getElementById('req-obs').value       = '';
+    
+    renderStore();
+    document.getElementById('success-modal').classList.add('open');
+    setTimeout(() => fetchProductsFromSheets(), 1500);
+
+  } catch (error) {
+    console.error('Erro ao enviar solicitação:', error);
+    showToast('❌ Ocorreu um erro ao registrar na planilha. Tente novamente.');
+  } finally {
+    btnSubmit.disabled = false;
+    btnSubmit.textContent = 'Enviar Solicitação →';
   }
-  
-  Object.keys(cart).forEach(k => delete cart[k]);
-  document.getElementById('req-nome').value      = '';
-  document.getElementById('req-email').value     = '';
-  document.getElementById('req-equipe').value    = '';
-  document.getElementById('req-aprovador').value = '';
-  document.getElementById('req-evento').value    = '';
-  document.getElementById('req-obs').value       = '';
-  
-  renderStore();
-  btn.textContent = 'Enviar Solicitação →';
-  document.getElementById('success-modal').classList.add('open');
 }
 
 function closeModal() {
@@ -1119,6 +1096,7 @@ function doLogin() {
     document.getElementById('login-error').style.display = 'block';
   }
 }
+
 function doLogout() {
   authenticated = false;
   document.getElementById('painel-login').style.display   = 'flex';
@@ -1126,12 +1104,13 @@ function doLogout() {
 }
 
 // ══════════════════════════════════════════
-//  PAINEL — SOLICITAÇÕES
+//  PAINEL — VISUALIZAÇÃO E LEITURA
 // ══════════════════════════════════════════
 function renderPanel() {
   renderSolicitations();
   renderStockPanel();
 }
+
 function renderSolicitations() {
   const reqs = getRequests();
   const wrap = document.getElementById('solicitations-list');
@@ -1180,20 +1159,16 @@ function deleteRequest(id) {
     const reqs = getRequests().filter(r => r.id !== id);
     setRequests(reqs);
     renderSolicitations();
-    renderStockPanel();
     showToast('🗑️ Solicitação excluída!');
   }
 }
 
 // ══════════════════════════════════════════
-//  PAINEL — ESTOQUE (LISTA VERTICAL + BUSCA + VISIBILIDADE)
+//  PAINEL — ESTOQUE (LISTA DE LEITURA DO SHEETS)
 // ══════════════════════════════════════════
 function renderStockPanel() {
-  const stock    = getStock();
-  const reserved = getReservedStock();
-  const hidden   = getHiddenProducts();
-  const search   = (document.getElementById('stock-search')?.value || '').toLowerCase().trim();
-  const wrap     = document.getElementById('stock-list-vertical');
+  const search = (document.getElementById('stock-search')?.value || '').toLowerCase().trim();
+  const wrap   = document.getElementById('stock-list-vertical');
   wrap.innerHTML = '';
 
   const filteredProducts = PRODUCTS.filter(p => p.name.toLowerCase().includes(search));
@@ -1204,103 +1179,41 @@ function renderStockPanel() {
   }
 
   filteredProducts.forEach(p => {
-    const qty         = stock[p.id] ?? 0;
-    const reservedQty = reserved[p.id] || 0;
-    const isHidden    = hidden.includes(p.id);
-    const dotClass    = qty === 0 ? 'dot-zero' : qty <= 5 ? 'dot-low' : 'dot-ok';
-    const dotLabel    = qty === 0 ? 'Sem Estoque' : qty <= 5 ? 'Estoque baixo' : 'Em estoque';
+    const qty      = p.stock ?? 0;
+    const isHidden = !p.visible;
+    const dotClass = qty === 0 ? 'dot-zero' : qty <= 5 ? 'dot-low' : 'dot-ok';
+    const dotLabel = qty === 0 ? 'Sem Estoque' : qty <= 5 ? 'Estoque baixo' : 'Em estoque';
 
     const itemBlock = document.createElement('div');
     itemBlock.className = 'stock-item-block' + (isHidden ? ' is-hidden' : '');
 
-    let reservationHTML = '';
-    if (reservedQty > 0) {
-      reservationHTML = `
-        <div class="stock-reservation-box">
-          <div class="stock-reservation-text">📌 Reservado em solicitação: ${reservedQty} un.</div>
-          <button class="btn-deduct-stock" onclick="deductStock(${p.id}, ${reservedQty})">Baixar estoque (-${reservedQty})</button>
-        </div>`;
-    }
-
-    const toggleBtnText  = isHidden ? '👁 Exibir na Loja' : 'Ocultar da Loja';
-    const toggleBtnClass = isHidden ? 'btn-toggle-visibility hidden-mode' : 'btn-toggle-visibility';
+    const visibilityBadge = p.visible 
+      ? `<span class="badge-visibility visible">Visível na Loja</span>` 
+      : `<span class="badge-visibility hidden">Oculto na Loja</span>`;
 
     itemBlock.innerHTML = `
       <div class="stock-item-info">
-        <img class="stock-item-thumb" src="${p.img}" alt="${p.name}">
+        <img class="stock-item-thumb" src="${p.img}" alt="${p.name}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect width=%22200%22 height=%22200%22 fill=%22%23F0F0F0%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2213%22 fill=%22%23999%22>Imagem</text></svg>'">
         <div class="stock-item-details">
           <span class="stock-item-name">${p.name}</span>
+          <span class="stock-item-id">ID: ${p.id}</span>
           <div class="stock-indicator">
             <span class="dot ${dotClass}"></span>
-            <span style="color:var(--text-muted);font-size:12px">${dotLabel} ${isHidden ? '• <i>(Oculto no portal)</i>' : ''}</span>
+            <span style="color:var(--text-muted);font-size:12px">${dotLabel}</span>
           </div>
-          ${reservationHTML}
         </div>
       </div>
 
-      <div class="stock-controls-group">
-        <div class="stock-input-wrap">
-          <span class="stock-label">Estoque:</span>
-          <input class="stock-input" type="number" min="0" value="${qty}" id="si-${p.id}">
-          <button class="btn-save-stock" onclick="saveStock(${p.id})">Salvar</button>
+      <div style="display:flex; align-items:center; gap:16px;">
+        ${visibilityBadge}
+        <div class="stock-qty-badge">
+          <span style="font-size:12px; font-weight:600; color:var(--text-muted);">Planilha:</span>
+          <span>${qty} un.</span>
         </div>
-
-        <button class="${toggleBtnClass}" onclick="toggleProductVisibility(${p.id})">${toggleBtnText}</button>
       </div>`;
       
     wrap.appendChild(itemBlock);
   });
-}
-
-function saveStock(id) {
-  const val   = parseInt(document.getElementById(`si-${id}`).value) || 0;
-  const stock = getStock();
-  stock[id]   = Math.max(0, val);
-  setStock(stock);
-  renderStockPanel();
-  renderStore();
-  showToast('💾 Estoque atualizado!');
-}
-
-function toggleProductVisibility(id) {
-  let hidden = getHiddenProducts();
-  if (hidden.includes(id)) {
-    hidden = hidden.filter(x => x !== id);
-    showToast('👁️ Produto visível na loja!');
-  } else {
-    hidden.push(id);
-    showToast('🙈 Produto ocultado da loja!');
-  }
-  setHiddenProducts(hidden);
-  renderStockPanel();
-  renderStore();
-}
-
-function deductStock(productId, reservedQty) {
-  const p = PRODUCTS.find(x => x.id === productId);
-  const pName = p ? p.name : 'este produto';
-
-  if (confirm(`Deseja subtrair ${reservedQty} un. de "${pName}" do estoque?`)) {
-    const stock = getStock();
-    const currentQty = stock[productId] ?? 0;
-    stock[productId] = Math.max(0, currentQty - reservedQty);
-    setStock(stock);
-
-    const reqs = getRequests();
-    reqs.forEach(req => {
-      if (req.rawCart && req.rawCart[productId]) {
-        delete req.rawCart[productId];
-      }
-      if (req.items && Array.isArray(req.items)) {
-        req.items = req.items.filter(itemStr => !itemStr.includes(pName));
-      }
-    });
-    setRequests(reqs);
-
-    renderStockPanel();
-    renderStore();
-    showToast('📦 Estoque baixado com sucesso!');
-  }
 }
 
 // ══════════════════════════════════════════
@@ -1316,6 +1229,7 @@ function showPage(page, btn) {
     document.getElementById('painel-content').style.display = 'none';
   }
 }
+
 function showPanelTab(tab, btn) {
   document.querySelectorAll('.panel-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.ptab').forEach(b => b.classList.remove('active'));
@@ -1336,9 +1250,9 @@ function showToast(msg) {
 }
 
 // ══════════════════════════════════════════
-//  INIT
+//  INICIALIZAÇÃO
 // ══════════════════════════════════════════
-renderStore();
+fetchProductsFromSheets();
 </script>
 </body>
 </html>
